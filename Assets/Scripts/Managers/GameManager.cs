@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager Instance;
 
+    public UIManager UIManager;
+    public AudioManager AudioManager;
+
     void Awake()
     {
         InitializeGameManager();
