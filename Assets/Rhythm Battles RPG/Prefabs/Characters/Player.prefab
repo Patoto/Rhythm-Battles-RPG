@@ -14242,7 +14242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d876e8a00d8b4fd894d3eaf273e1780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 0}
+  Animator: {fileID: 6927874172319796564}
 --- !u!1 &3459377575176739653
 GameObject:
   m_ObjectHideFlags: 0
