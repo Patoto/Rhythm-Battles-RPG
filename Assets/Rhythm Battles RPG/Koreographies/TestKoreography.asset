@@ -22,12 +22,12 @@ MonoBehaviour:
     samplesPerBeat: 2646000
     beatsPerMeasure: 1
     bStartNewMeasure: 0
-  - sectionName: Beat
+  - sectionName: Hit
     startSample: 76800
     samplesPerBeat: 8820
     beatsPerMeasure: 4
     bStartNewMeasure: 1
-  - sectionName: Hit
+  - sectionName: Beat
     startSample: 76800
     samplesPerBeat: 8820
     beatsPerMeasure: 4
