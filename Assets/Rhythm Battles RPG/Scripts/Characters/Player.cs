@@ -5,23 +5,24 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("References")]
-    public Rigidbody Rigidbody;
+    public Animator Animator;
 
-    private void Update()
+    public enum HopDirection
     {
-        ApplyGravity();
+        Left,
+        Right
     }
 
-    public void Jump(float jumpForce)
+    public void Hop(HopDirection hopDirection)
     {
-        float newYVelocity = Rigidbody.velocity.y + jumpForce;
-        Rigidbody.velocity = Utils.ModifyVector3YValue(Rigidbody.velocity, newYVelocity);
-    }
-
-    private void ApplyGravity()
-    {
-        float relativeGravity = Utils.Gravity * Time.deltaTime;
-        float newYVelocity = Rigidbody.velocity.y - relativeGravity;
-        Rigidbody.velocity = Utils.ModifyVector3YValue(Rigidbody.velocity, newYVelocity);
+        switch (hopDirection)
+        {
+            case HopDirection.Left:
+                Animator.Play("HopLeft");
+                break;
+            case HopDirection.Right:
+                Animator.Play("HopRight");
+                break;
+        }
     }
 }
