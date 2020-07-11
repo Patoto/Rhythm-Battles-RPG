@@ -28,10 +28,10 @@ public class Player : MonoBehaviour
         switch (hopDirection)
         {
             case HopDirection.Left:
-                Animator.SetTrigger("HopLeft");
+                Animator.Play("HopLeft");
                 break;
             case HopDirection.Right:
-                Animator.SetTrigger("HopRight");
+                Animator.Play("HopRight");
                 break;
         }
         lastHopDirection = hopDirection;
@@ -53,10 +53,10 @@ public class Player : MonoBehaviour
         switch (hitDirection)
         {
             case HitDirection.Left:
-                Animator.SetTrigger("HitLeft");
+                Animator.Play("HitLeft");
                 break;
             case HitDirection.Right:
-                Animator.SetTrigger("HitRight");
+                Animator.Play("HitRight");
                 break;
         }
         lastHitDirection = hitDirection;
