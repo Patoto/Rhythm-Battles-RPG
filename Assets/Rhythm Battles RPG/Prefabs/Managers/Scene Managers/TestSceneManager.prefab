@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPlayOnAwake: 1
-  koreography: {fileID: 11400000, guid: ca61dac1e528d41029990e60e246bc15, type: 2}
+  koreography: {fileID: 11400000, guid: 78e8731e5651143c58975359e951d62a, type: 2}
   targetKoreographer: {fileID: 0}
 --- !u!114 &8693179207929938673
 MonoBehaviour:
