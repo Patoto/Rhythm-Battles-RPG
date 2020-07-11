@@ -6,8 +6,11 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager Instance;
 
+    [HideInInspector] public TestSceneManager TestSceneManager;
+
     public UIManager UIManager;
     public AudioManager AudioManager;
+    public InputManager InputManager;
 
     void Awake()
     {

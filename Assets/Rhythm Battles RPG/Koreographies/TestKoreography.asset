@@ -22,16 +22,12 @@ MonoBehaviour:
     samplesPerBeat: 2646000
     beatsPerMeasure: 1
     bStartNewMeasure: 0
-  - sectionName: Hit
+  - sectionName: Main
     startSample: 76800
     samplesPerBeat: 8820
-    beatsPerMeasure: 4
-    bStartNewMeasure: 1
-  - sectionName: Beat
-    startSample: 76800
-    samplesPerBeat: 8820
-    beatsPerMeasure: 4
+    beatsPerMeasure: 8
     bStartNewMeasure: 1
   mTracks:
   - {fileID: 11400000, guid: 5d23c65bd65bb4990ba04c2ceac30a6d, type: 2}
   - {fileID: 11400000, guid: 6d90ff2250a8d4faf814f8a24c006457, type: 2}
+  - {fileID: 11400000, guid: 340d4586c9a35440aa66faa06ceab231, type: 2}

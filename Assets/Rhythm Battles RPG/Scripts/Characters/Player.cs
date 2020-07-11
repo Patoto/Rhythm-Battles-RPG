@@ -18,23 +18,42 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     public Animator Animator;
+    [Header("Settings")]
+    public float HitTime;
 
     private HopDirection lastHopDirection = HopDirection.Right;
     private HitDirection lastHitDirection = HitDirection.Right;
+    private bool hitting = false;
+
+    private void Update()
+    {
+        CheckInputs();
+    }
+
+    private void CheckInputs()
+    {
+        if (GameManager.Instance.InputManager.PressedHitButton())
+        {
+            Hit();
+        }
+    }
 
     public void Hop()
     {
-        HopDirection hopDirection = GetNewHopDirection();
-        switch (hopDirection)
+        if (!hitting)
         {
-            case HopDirection.Left:
-                Animator.Play("HopLeft");
-                break;
-            case HopDirection.Right:
-                Animator.Play("HopRight");
-                break;
+            HopDirection hopDirection = GetNewHopDirection();
+            switch (hopDirection)
+            {
+                case HopDirection.Left:
+                    Animator.Play("HopLeft");
+                    break;
+                case HopDirection.Right:
+                    Animator.Play("HopRight");
+                    break;
+            }
+            lastHopDirection = hopDirection;
         }
-        lastHopDirection = hopDirection;
     }
 
     private HopDirection GetNewHopDirection()
@@ -47,8 +66,9 @@ public class Player : MonoBehaviour
         return newHopDirection;
     }
 
-    public void Hit()
+    private void Hit()
     {
+        hitting = true;
         HitDirection hitDirection = GetNewHitDirection();
         switch (hitDirection)
         {
@@ -60,6 +80,13 @@ public class Player : MonoBehaviour
                 break;
         }
         lastHitDirection = hitDirection;
+        CancelInvoke("OnFinishedHit");
+        Invoke("OnFinishedHit", HitTime);
+    }
+
+    private void OnFinishedHit()
+    {
+        hitting = false;
     }
 
     private HitDirection GetNewHitDirection()

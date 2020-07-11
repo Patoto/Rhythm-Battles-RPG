@@ -14243,6 +14243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 6927874172319796564}
+  HitTime: 0.25
 --- !u!1 &3459377575176739653
 GameObject:
   m_ObjectHideFlags: 0
