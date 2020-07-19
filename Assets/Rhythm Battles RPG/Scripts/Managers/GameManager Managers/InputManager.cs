@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class InputManager : Manager
 {
     public KeyCode HitKey = KeyCode.J;
+
+    public override void ConnectManager()
+    {
+        GameManager.Instance.InputManager = this;
+    }
 
     public bool PressedHitButton()
     {

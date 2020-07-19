@@ -1,35 +1,64 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Manager
 {
+    //Singleton
     [HideInInspector] public static GameManager Instance;
 
-    [HideInInspector] public TestSceneManager TestSceneManager;
+    //Global managers
+    [HideInInspector] public AudioManager AudioManager;
+    [HideInInspector] public InputManager InputManager;
+    [HideInInspector] public UIManager UIManager;
 
-    public UIManager UIManager;
-    public AudioManager AudioManager;
-    public InputManager InputManager;
+    //Other managers
+    [HideInInspector] public GameplayManager GameplayManager;
 
-    void Awake()
+    private void Awake()
     {
-        InitializeGameManager();
+        Initialize();
     }
 
-    private void InitializeGameManager()
+    private void Initialize()
+    {
+        SetupSingleton();
+        ConnectAllManagers();
+    }
+
+    private void SetupSingleton()
     {
         if (Instance == null)
         {
-            DontDestroyOnLoad(gameObject);
             Instance = this;
+            RemoveParent();
+            DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (Instance != this)
         {
-            if (Instance != this)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
+
+    private void RemoveParent()
+    {
+        transform.SetParent(null);
+    }
+
+    public override void ConnectManager() { }
+
+    private void ConnectAllManagers()
+    {
+        Manager[] managers = FindObjectsOfType<Manager>();
+        foreach (Manager tempManager in managers)
+        {
+            tempManager.ConnectManager();
+        }
+    }
+}
+
+public abstract class Manager : MonoBehaviour
+{
+    public abstract void ConnectManager();
 }

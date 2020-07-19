@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SonicBloom.Koreo;
 using UnityEngine;
 
-public class TestSceneManager : MonoBehaviour
+public class GameplayManager : Manager
 {
 	[Header("References")]
 	public Player Player;
@@ -22,7 +22,6 @@ public class TestSceneManager : MonoBehaviour
 
 	private void Initialize()
 	{
-		GameManager.Instance.TestSceneManager = this;
 		Koreographer.Instance.RegisterForEvents(BeatEventID, MakePlayerHop);
 		Koreographer.Instance.RegisterForEvents(CueEventID, ShowCueStar);
 	}
@@ -44,4 +43,9 @@ public class TestSceneManager : MonoBehaviour
 	{
 		CueStar.SetActive(false);
 	}
+
+    public override void ConnectManager()
+    {
+		GameManager.Instance.GameplayManager = this;
+    }
 }

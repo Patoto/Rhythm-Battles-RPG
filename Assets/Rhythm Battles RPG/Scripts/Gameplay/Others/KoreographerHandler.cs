@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SonicBloom.Koreo;
 using UnityEngine;
 
-public class KoreographerManager : MonoBehaviour
+public class KoreographerHandler : MonoBehaviour
 {
     private void Start()
     {

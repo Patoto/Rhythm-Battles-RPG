@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Manager
 {
+    public override void ConnectManager()
+    {
+        GameManager.Instance.AudioManager = this;
+    }
+
     public AudioSource PlaySound(AudioClip audioClip, float volume = 1, bool loop = false, float pitch = 1, GameObject sourceObject = null)
     {
         float spatialBlend = 0;

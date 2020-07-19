@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Manager
 {
-
+    public override void ConnectManager()
+    {
+        GameManager.Instance.UIManager = this;
+    }
 }
