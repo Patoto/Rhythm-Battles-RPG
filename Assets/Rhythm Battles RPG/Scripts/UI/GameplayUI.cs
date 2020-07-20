@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static Utils;
 
 public class GameplayUI : MonoBehaviour
@@ -26,6 +27,6 @@ public class GameplayUI : MonoBehaviour
     {
         MeasureWindow firstMeasureWindow = measureWindows[0];
         measureWindows.Remove(firstMeasureWindow);
-        Destroy(firstMeasureWindow);
+        Destroy(firstMeasureWindow.gameObject);
     }
 }

@@ -26,4 +26,5 @@ public static class TrackNames
 {
     public static string Measure = "Measure";
     public static string Beat = "Beat";
+    public static string Note = "Note";
 }

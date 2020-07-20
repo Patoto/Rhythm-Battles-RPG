@@ -13,5 +13,6 @@ public class MeasureWindow : MonoBehaviour
     public void CreateBeatUI(Beat beat)
     {
         BeatUI beatUI = InstantiateUIElement(BeatUIPrefab.gameObject, BeatUIParent, Vector2.zero).GetComponent<BeatUI>();
+        beatUI.SetupBeatUI(beat.BeatType);
     }
 }

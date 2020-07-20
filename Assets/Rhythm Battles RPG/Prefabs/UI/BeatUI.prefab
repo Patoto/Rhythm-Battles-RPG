@@ -139,7 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e728bdb9ce41adb6ee534a4423b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeatImage: {fileID: 8964969661107131150}
+  Outline: {fileID: 7479842992835270739}
   OutlineOffColor: {r: 0, g: 0, b: 0, a: 1}
   OutlineOnColor: {r: 1, g: 1, b: 1, a: 1}
-  NoteOffColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
-  NoteOnColor: {r: 0, g: 1, b: 0, a: 1}
+  BeatOffColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  BeatOnColor: {r: 0, g: 1, b: 0, a: 1}

@@ -13,6 +13,7 @@ public class KoreographyHandler : MonoBehaviour
     public Koreography Koreography;
 
     private List<KoreographyEvent> beatEvents;
+    private List<KoreographyEvent> noteEvents;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class KoreographyHandler : MonoBehaviour
     {
         MeasureEvents = Koreography.GetTrackByID(TrackNames.Measure).GetAllEvents();
         beatEvents = Koreography.GetTrackByID(TrackNames.Beat).GetAllEvents();
+        noteEvents = Koreography.GetTrackByID(TrackNames.Note).GetAllEvents();
     }
 
     private void SetupMeasures()
@@ -43,10 +45,35 @@ public class KoreographyHandler : MonoBehaviour
         List<KoreographyEvent> beatEventsInMeasure = GetBeatEventsInMeasure(measureEvent);
         foreach (KoreographyEvent tempBeatEvent in beatEventsInMeasure)
         {
-            Beat newBeat = new Beat(BeatType.None);
+            BeatType beatType = GetBeatEventBeatType(tempBeatEvent);
+            Beat newBeat = new Beat(beatType);
             beats.Add(newBeat);
         }
         return beats;
+    }
+
+    private BeatType GetBeatEventBeatType(KoreographyEvent beatEvent)
+    {
+        BeatType beatType = BeatType.None;
+        KoreographyEvent noteEvent = GetNoteEventAtSample(beatEvent.StartSample);
+        if (noteEvent != null)
+        {
+            beatType = BeatType.A;
+        }
+        return beatType;
+    }
+
+    private KoreographyEvent GetNoteEventAtSample(int sample)
+    {
+        KoreographyEvent noteEventAtSample = null;
+        foreach (KoreographyEvent tempNoteEvent in noteEvents)
+        {
+            if (tempNoteEvent.StartSample == sample)
+            {
+                noteEventAtSample = tempNoteEvent;
+            }
+        }
+        return noteEventAtSample;
     }
 
     private List<KoreographyEvent> GetBeatEventsInMeasure(KoreographyEvent measureEvent)
