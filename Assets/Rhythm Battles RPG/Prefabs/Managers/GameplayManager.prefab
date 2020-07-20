@@ -255,3 +255,4 @@ MonoBehaviour:
   Player: {fileID: 0}
   KoreographyHandler: {fileID: 0}
   BeatEventID: Hop
+  MeasureEventID: Measure

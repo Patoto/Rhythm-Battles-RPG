@@ -11,6 +11,7 @@ public class GameplayManager : Manager
 	public KoreographyHandler KoreographyHandler;
 	[Header("Others")]
 	[EventID] public string BeatEventID;
+	[EventID] public string MeasureEventID;
 
 	private void Start()
 	{
@@ -21,6 +22,15 @@ public class GameplayManager : Manager
 	private void SetupKoreographyEvents()
 	{
 		Koreographer.Instance.RegisterForEvents(BeatEventID, MakePlayerHop);
+		Koreographer.Instance.RegisterForEvents(MeasureEventID, RemoveMeasureWindow);
+	}
+
+	private void RemoveMeasureWindow(KoreographyEvent koreographyEvent)
+	{
+		if (koreographyEvent != KoreographyHandler.MeasureEvents[0])
+		{
+			GameplayUI.RemoveMeasureWindow();
+		}
 	}
 
 	private void CreateMeasureWindows()

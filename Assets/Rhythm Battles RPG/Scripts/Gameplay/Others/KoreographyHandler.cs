@@ -7,11 +7,11 @@ using UnityEngine;
 public class KoreographyHandler : MonoBehaviour
 {
     [HideInInspector] public List<Measure> Measures;
+    [HideInInspector] public List<KoreographyEvent> MeasureEvents;
 
     [Header("References")]
     public Koreography Koreography;
 
-    private List<KoreographyEvent> measureEvents;
     private List<KoreographyEvent> beatEvents;
 
     private void Awake()
@@ -22,14 +22,14 @@ public class KoreographyHandler : MonoBehaviour
 
     private void SetupEvents()
     {
-        measureEvents = Koreography.GetTrackByID(TrackNames.Measure).GetAllEvents();
+        MeasureEvents = Koreography.GetTrackByID(TrackNames.Measure).GetAllEvents();
         beatEvents = Koreography.GetTrackByID(TrackNames.Beat).GetAllEvents();
     }
 
     private void SetupMeasures()
     {
         Measures = new List<Measure>();
-        foreach (KoreographyEvent tempMeasureEvent in measureEvents)
+        foreach (KoreographyEvent tempMeasureEvent in MeasureEvents)
         {
             List<Beat> beats = CreateBeatsWithMeasureEvent(tempMeasureEvent);
             Measure newMeasure = new Measure(beats);
@@ -76,7 +76,7 @@ public class KoreographyHandler : MonoBehaviour
     private KoreographyEvent GetNextMeasureEvent(KoreographyEvent measureEvent)
     {
         KoreographyEvent nextMeasureEvent = null;
-        foreach (KoreographyEvent tempKoreographyEvent in measureEvents)
+        foreach (KoreographyEvent tempKoreographyEvent in MeasureEvents)
         {
             if (tempKoreographyEvent.StartSample > measureEvent.StartSample)
             {
