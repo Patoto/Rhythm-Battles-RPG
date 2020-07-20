@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BeatUI : MonoBehaviour
 {
+    [HideInInspector] public Beat Beat;
+
     [Header("References")]
     public Image BeatImage;
     public Outline Outline;
@@ -14,9 +16,10 @@ public class BeatUI : MonoBehaviour
     public Color BeatOffColor;
     public Color BeatOnColor;
 
-    public void SetupBeatUI(BeatType beatType)
+    public void SetupBeatUI(Beat beat)
     {
-        SetupBeatColor(beatType);
+        Beat = beat;
+        SetupBeatColor(Beat.BeatType);
     }
 
     private void SetupBeatColor(BeatType beatType)
@@ -35,5 +38,22 @@ public class BeatUI : MonoBehaviour
     private void ChangeBeatColor(Color color)
     {
         BeatImage.color = color;
+    }
+
+    private void ChangeOutlineColor(Color color)
+    {
+        Outline.effectColor = color;
+    }
+
+    public void ToggleOutlineColor(bool on)
+    {
+        if (on)
+        {
+            ChangeOutlineColor(OutlineOnColor);
+        }
+        else
+        {
+            ChangeOutlineColor(OutlineOffColor);
+        }
     }
 }

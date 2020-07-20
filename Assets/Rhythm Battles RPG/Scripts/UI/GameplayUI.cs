@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SonicBloom.Koreo;
 using UnityEngine;
 using UnityEngine.UI;
 using static Utils;
@@ -28,5 +29,11 @@ public class GameplayUI : MonoBehaviour
         MeasureWindow firstMeasureWindow = measureWindows[0];
         measureWindows.Remove(firstMeasureWindow);
         Destroy(firstMeasureWindow.gameObject);
+    }
+
+    public void TurnOnBeatUI(KoreographyEvent koreographyEvent)
+    {
+        MeasureWindow firstMeasureWindow = measureWindows[0];
+        firstMeasureWindow.TurnOnBeatUI(koreographyEvent);
     }
 }

@@ -254,5 +254,6 @@ MonoBehaviour:
   GameplayUI: {fileID: 5186571375774560667}
   Player: {fileID: 0}
   KoreographyHandler: {fileID: 0}
-  BeatEventID: Hop
+  HopEventID: Hop
   MeasureEventID: Measure
+  BeatEventID: Beat

@@ -10,8 +10,9 @@ public class GameplayManager : Manager
 	public Player Player;
 	public KoreographyHandler KoreographyHandler;
 	[Header("Others")]
-	[EventID] public string BeatEventID;
+	[EventID] public string HopEventID;
 	[EventID] public string MeasureEventID;
+	[EventID] public string BeatEventID;
 
 	private void Start()
 	{
@@ -21,8 +22,14 @@ public class GameplayManager : Manager
 
 	private void SetupKoreographyEvents()
 	{
-		Koreographer.Instance.RegisterForEvents(BeatEventID, MakePlayerHop);
+		Koreographer.Instance.RegisterForEvents(HopEventID, MakePlayerHop);
 		Koreographer.Instance.RegisterForEvents(MeasureEventID, RemoveMeasureWindow);
+		Koreographer.Instance.RegisterForEvents(BeatEventID, TurnOnBeatUI);
+	}
+
+	private void TurnOnBeatUI(KoreographyEvent koreographyEvent)
+	{
+		GameplayUI.TurnOnBeatUI(koreographyEvent);
 	}
 
 	private void RemoveMeasureWindow(KoreographyEvent koreographyEvent)

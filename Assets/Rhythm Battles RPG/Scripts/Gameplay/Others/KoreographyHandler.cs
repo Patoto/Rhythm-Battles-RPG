@@ -34,7 +34,7 @@ public class KoreographyHandler : MonoBehaviour
         foreach (KoreographyEvent tempMeasureEvent in MeasureEvents)
         {
             List<Beat> beats = CreateBeatsWithMeasureEvent(tempMeasureEvent);
-            Measure newMeasure = new Measure(beats);
+            Measure newMeasure = new Measure(tempMeasureEvent, beats);
             Measures.Add(newMeasure);
         }
     }
@@ -46,7 +46,7 @@ public class KoreographyHandler : MonoBehaviour
         foreach (KoreographyEvent tempBeatEvent in beatEventsInMeasure)
         {
             BeatType beatType = GetBeatEventBeatType(tempBeatEvent);
-            Beat newBeat = new Beat(beatType);
+            Beat newBeat = new Beat(tempBeatEvent, beatType);
             beats.Add(newBeat);
         }
         return beats;
@@ -138,20 +138,24 @@ public class KoreographyHandler : MonoBehaviour
 
 public class Measure
 {
+    [HideInInspector] public KoreographyEvent MeasureEvent;
     [HideInInspector] public List<Beat> Beats;
 
-    public Measure(List<Beat> beats)
+    public Measure(KoreographyEvent measureEvent, List<Beat> beats)
     {
+        MeasureEvent = measureEvent;
         Beats = beats;
     }
 }
 
 public class Beat
 {
+    [HideInInspector] public KoreographyEvent BeatEvent;
     [HideInInspector] public BeatType BeatType;
 
-    public Beat(BeatType beatType)
+    public Beat(KoreographyEvent beatEvent, BeatType beatType)
     {
+        BeatEvent = beatEvent;
         BeatType = beatType;
     }
 }
