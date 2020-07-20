@@ -6,42 +6,34 @@ using UnityEngine;
 public class GameplayManager : Manager
 {
 	[Header("References")]
+	public GameplayUI GameplayUI;
 	public Player Player;
-	public GameObject CueStar;
-	public AudioClip CueSound;
-	[Header("Settings")]
-	public float CueStarTime;
+	public KoreographyHandler KoreographyHandler;
 	[Header("Others")]
 	[EventID] public string BeatEventID;
-	[EventID] public string CueEventID;
 
 	private void Start()
 	{
-		Initialize();
+		SetupKoreographyEvents();
+		CreateMeasureWindows();
 	}
 
-	private void Initialize()
+	private void SetupKoreographyEvents()
 	{
 		Koreographer.Instance.RegisterForEvents(BeatEventID, MakePlayerHop);
-		Koreographer.Instance.RegisterForEvents(CueEventID, ShowCueStar);
+	}
+
+	private void CreateMeasureWindows()
+	{
+        foreach (Measure tempMeasure in KoreographyHandler.Measures)
+        {
+			GameplayUI.CreateMeasureWindow(tempMeasure);
+		}
 	}
 
 	private void MakePlayerHop(KoreographyEvent koreographyEvent)
 	{
 		Player.Hop();
-	}
-
-	private void ShowCueStar(KoreographyEvent koreographyEvent)
-	{
-		CueStar.SetActive(true);
-		GameManager.Instance.AudioManager.PlaySound(CueSound, 0.2f);
-		CancelInvoke("HideCueStar");
-		Invoke("HideCueStar", CueStarTime);
-	}
-
-	private void HideCueStar()
-	{
-		CueStar.SetActive(false);
 	}
 
     public override void ConnectManager()
