@@ -2317,7 +2317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631ab41c8c7fe46e7bd6c87d11a1f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Koreography: {fileID: 11400000, guid: ca61dac1e528d41029990e60e246bc15, type: 2}
+  MeasureEvents: []
+  Koreography: {fileID: 11400000, guid: 717db8f47192449fcb3e5c43348cfe9a, type: 2}
 --- !u!114 &445237617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2331,7 +2332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPlayOnAwake: 1
-  koreography: {fileID: 11400000, guid: ca61dac1e528d41029990e60e246bc15, type: 2}
+  koreography: {fileID: 11400000, guid: 717db8f47192449fcb3e5c43348cfe9a, type: 2}
   targetKoreographer: {fileID: 0}
 --- !u!82 &445237618
 AudioSource:
