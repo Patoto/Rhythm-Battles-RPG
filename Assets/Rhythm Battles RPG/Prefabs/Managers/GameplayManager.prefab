@@ -47,6 +47,7 @@ MonoBehaviour:
   MeasureWindowsParent: {fileID: 1122209568359708795}
   MeasureWindowPrefab: {fileID: 1795906110852554052, guid: f1f77aa1f412f430085b4ab3b73539aa,
     type: 3}
+  MaxMeasureWindowsShown: 2
 --- !u!1 &5290417273685847244
 GameObject:
   m_ObjectHideFlags: 0

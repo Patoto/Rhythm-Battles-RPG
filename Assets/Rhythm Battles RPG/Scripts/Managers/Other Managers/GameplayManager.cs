@@ -46,6 +46,7 @@ public class GameplayManager : Manager
         {
 			GameplayUI.CreateMeasureWindow(tempMeasure);
 		}
+		GameplayUI.UpdateMeasureWindowsAlphas();
 	}
 
 	private void MakePlayerHop(KoreographyEvent koreographyEvent)

@@ -8,6 +8,7 @@ public class MeasureWindow : MonoBehaviour
 {
     [Header("References")]
     public Transform BeatUIParent;
+    public CanvasGroup CanvasGroup;
     [Header("Prefabs")]
     public BeatUI BeatUIPrefab;
 
@@ -48,6 +49,18 @@ public class MeasureWindow : MonoBehaviour
         foreach (BeatUI tempBeatUI in beatUIs)
         {
             tempBeatUI.ToggleOutlineColor(on);
+        }
+    }
+
+    public void ToggleCanvasGroup(bool on)
+    {
+        if (on)
+        {
+            CanvasGroup.alpha = 1;
+        }
+        else
+        {
+            CanvasGroup.alpha = 0;
         }
     }
 }

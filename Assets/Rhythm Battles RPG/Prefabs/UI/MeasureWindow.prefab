@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5203691544128486202}
   - component: {fileID: 1795906110852554052}
+  - component: {fileID: 3040872181730955398}
   m_Layer: 0
   m_Name: MeasureWindow
   m_TagString: Untagged
@@ -50,8 +51,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeatUIParent: {fileID: 7148292224845769348}
+  CanvasGroup: {fileID: 3040872181730955398}
   BeatUIPrefab: {fileID: 398949233871003734, guid: 0c821ea2b71fa49188e63a114262d7cf,
     type: 3}
+--- !u!225 &3040872181730955398
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733138781404051234}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7550974651726370484
 GameObject:
   m_ObjectHideFlags: 0

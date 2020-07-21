@@ -11,6 +11,8 @@ public class GameplayUI : MonoBehaviour
     public Transform MeasureWindowsParent;
     [Header("Prefabs")]
     public MeasureWindow MeasureWindowPrefab;
+    [Header("Settings")]
+    public int MaxMeasureWindowsShown;
 
     private List<MeasureWindow> measureWindows = new List<MeasureWindow>();
 
@@ -29,6 +31,22 @@ public class GameplayUI : MonoBehaviour
         MeasureWindow firstMeasureWindow = measureWindows[0];
         measureWindows.Remove(firstMeasureWindow);
         Destroy(firstMeasureWindow.gameObject);
+        UpdateMeasureWindowsAlphas();
+    }
+
+    public void UpdateMeasureWindowsAlphas()
+    {
+        int measureWindowsCount = measureWindows.Count;
+        for (int i = 0; i < measureWindowsCount; i++)
+        {
+            MeasureWindow tempMeasureWindow = measureWindows[i];
+            bool showMeasureWindow = false;
+            if (i < MaxMeasureWindowsShown)
+            {
+                showMeasureWindow = true;
+            }
+            tempMeasureWindow.ToggleCanvasGroup(showMeasureWindow);
+        }
     }
 
     public void TurnOnBeatUI(KoreographyEvent koreographyEvent)
