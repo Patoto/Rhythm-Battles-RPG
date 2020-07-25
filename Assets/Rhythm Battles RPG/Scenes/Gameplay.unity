@@ -2318,7 +2318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MeasureEvents: []
-  Koreography: {fileID: 11400000, guid: ca61dac1e528d41029990e60e246bc15, type: 2}
+  Koreography: {fileID: 11400000, guid: 717db8f47192449fcb3e5c43348cfe9a, type: 2}
 --- !u!114 &445237617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPlayOnAwake: 1
-  koreography: {fileID: 11400000, guid: ca61dac1e528d41029990e60e246bc15, type: 2}
+  koreography: {fileID: 11400000, guid: 717db8f47192449fcb3e5c43348cfe9a, type: 2}
   targetKoreographer: {fileID: 0}
 --- !u!82 &445237618
 AudioSource:
@@ -3050,6 +3050,11 @@ PrefabInstance:
       propertyPath: KoreographyHandler
       value: 
       objectReference: {fileID: 445237616}
+    - target: {fileID: 6078638093953073374, guid: 10a82862f8e294fdaa01775bbe6f47ec,
+        type: 3}
+      propertyPath: BeatSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 91eec65fd4e1e49c9b73af50d3fd959b, type: 3}
     - target: {fileID: 6451850405118065224, guid: 10a82862f8e294fdaa01775bbe6f47ec,
         type: 3}
       propertyPath: m_AnchorMin.y
