@@ -29,13 +29,11 @@ public class GameplayManager : Manager
 
 	private void TurnOnBeatUI(KoreographyEvent koreographyEvent)
 	{
-		Debug.Log("TurnOnBeatUI");
 		GameplayUI.TurnOnBeatUI(koreographyEvent);
 	}
 
 	private void RemoveMeasureWindow(KoreographyEvent koreographyEvent)
 	{
-		Debug.Log("RemoveMeasureWindow");
 		if (koreographyEvent != KoreographyHandler.MeasureEvents[0])
 		{
 			GameplayUI.RemoveMeasureWindow();
